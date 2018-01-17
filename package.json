@@ -1,0 +1,22 @@
+{
+  "name": "harpsprodproxy",
+  "version": "1.0.0",
+  "description": "Harps deploy proxy",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/QuantumSheep/harpsproxy.git"
+  },
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js && pm2 start ecosystem.config.js"
+  },
+  "author": "QuantumSheep",
+  "license": "MIT",
+  "dependencies": {
+    "http-proxy": "^1.16.2"
+  },
+  "devDependencies": {
+    "@types/node": "^8.5.1",
+    "@types/http-proxy": "^1.12.3"
+  }
+}
