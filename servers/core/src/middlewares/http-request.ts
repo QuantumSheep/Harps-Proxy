@@ -13,6 +13,7 @@ import { RowUser } from "../entities/user.entity";
 import { ErrorHandler } from "../services/ErrorHandler";
 import { Locals } from "../interfaces/LocalsInterface";
 import { SqlConnection, config } from "../GlobalServices";
+import { Randomizer } from "../services/Randomizer";
 
 export function load_data(req: Request, res: Response, callback: Function): void {
     // Auto-langages support
@@ -26,6 +27,7 @@ export function load_data(req: Request, res: Response, callback: Function): void
         lang: language,
         errors: new ErrorHandler(),
         config: JSON.parse(JSON.stringify(view_config)),
+        randomVersion: Randomizer.version,
         csrfToken: req.csrfToken(),
     };
 

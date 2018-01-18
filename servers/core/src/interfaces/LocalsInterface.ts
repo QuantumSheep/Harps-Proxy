@@ -7,5 +7,6 @@ export interface Locals {
     lang: Lang,
     errors: ErrorHandler,
     config: object,
+    randomVersion(): string,
     csrfToken?: string
 }
