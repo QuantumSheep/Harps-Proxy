@@ -1,0 +1,38 @@
+<% config.title = lang.views.index.title; %>
+<% config.sidebar.type = "group"; %>
+<% config.sidebar.selected = "new"; %>
+<% config.scripts = ['/js/newgroup.js']; %>
+<section class="content-sidebar card">
+    <div class="card-block row flex-card">
+        <div class="col-lg-12">
+            <h1>
+                <b>Create a new group</b>
+            </h1>
+            <h2>Select a plan</h2>
+        </div>
+        <div class="col-md-4 mb-md-0 mb-3">
+            <div class="selectable-card<%= model.newGroup.selectedPlan == "0" ? " active" : "" %>" data-plan="0">
+                Hello
+            </div>
+        </div>
+        <div class="col-md-4 mb-md-0 mb-3">
+            <div class="selectable-card<%= model.newGroup.selectedPlan == "1" ? " active" : "" %>" data-plan="1">
+                Hello
+            </div>
+        </div>
+        <div class="col-md-4 mb-md-0 mb-3">
+            <div class="selectable-card<%= model.newGroup.selectedPlan == "2" ? " active" : "" %>" data-plan="2">
+                Hello
+            </div>
+        </div>
+        
+        <div class="mt-3 centered">
+            <form class="col-lg-12" method="POST">
+                <input id="plan" name="plan" value="<%= model.newGroup.selectedPlan %>" autocomplete="off" type="hidden">
+                <input type="hidden" name="_csrf" value="<%- csrfToken %>">
+
+                <button class="btn btn-harps">Continue</button>
+            </form>
+        </div>
+    </div>
+</section>

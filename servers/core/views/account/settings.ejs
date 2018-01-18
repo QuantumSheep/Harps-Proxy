@@ -1,0 +1,108 @@
+<% config.title = lang.views.account.settings.title; %>
+<% config.sidebar.type = "account"; %>
+<% config.sidebar.selected = "settings"; %>
+<% config.styles = ['/libs/cropper/cropper.min.css']; %>
+<% config.scripts = ['/libs/cropper/cropper.min.js', '/js/account.js']; %>
+    <main class="content-sidebar card">
+        <div class="card-block row flex-card">
+            <div class="col-lg-12">
+                <h1>
+                    <b><%- lang.views.account.settings.title %></b>
+                </h1>
+            </div>
+            <div class="col-md-5 col-lg-4">
+                <form id="profilpic" method="POST" enctype="multipart/form-data">
+                    <input type="hidden" name="_csrf" value="<%- csrfToken %>">
+                    <input type="file" id="ppinput" name="ppinput" accept="image/png, image/jpeg" class="notdisplayed">
+
+                    <div class="col-lg-12 centered">
+                        <div id="avatar-upload" class="avatar-upload">
+                            <div id="avatar-hovertxt" class="avatar-hovertxt">Update</div>
+                            <div id="avatar-hovertxtdrop" class="avatar-hovertxt notvisible">Drop here to update</div>
+                            <img id="avatar" class="rounded-2" src="/avatars/<%- account.idusers %>" crossorigin="anonymous">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-7 col-lg-8">
+                <h3><%- lang.views.account.settings.basics %></h3>
+                <form method="POST" action="/account/settings">
+                    <input type="hidden" name="_csrf" value="<%- csrfToken %>">
+                    
+                    <label>
+                        <%- lang.input.firstname %>
+                    </label>
+                    <div class="input-group">
+                        <span class="input-group-addon" id="addon-firstname">
+                            <i class="fa fa-user-o" aria-hidden="true"></i>
+                        </span>
+                        <input type="text" class="form-control" placeholder="Nouveau Prenom" name="firstname" aria-describedby="addon-firstname" value="<%- account.firstname %>">
+                    </div>
+
+                    <label>
+                        <%- lang.input.lastname %>
+                    </label>
+                    <div class="input-group">
+                        <span class="input-group-addon" id="addon-lastname">
+                            <i class="fa fa-user-o" aria-hidden="true"></i>
+                        </span>
+                        <input type="text" class="form-control" placeholder="Nouveau Nom" name="lastname" aria-describedby="addon-lastname" value="<%- account.lastname %>">
+                    </div>
+
+                    <label>
+                        <%- lang.input.birthdate %>
+                    </label>
+                    <div class="input-group">
+                        <span class="input-group-addon" id="addon-birthday">
+                            <i class="fa fa-birthday-cake" aria-hidden="true"></i>
+                        </span>
+                        <input type="date" class="form-control" aria-describedby="addon-birthday" name="birthdate" value="<%- account.birthdate %>">
+                    </div>
+                    
+                    <label>
+                        <%- lang.input.email %>
+                    </label>
+                    <div class="input-group">
+                        <span class="input-group-addon" id="addon-email">
+                            <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                        </span>
+                        <input type="email" class="form-control" placeholder="Email" name="email" aria-describedby="addon-email" value="<%- account.email %>">
+                    </div>
+                    <br>
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert" <%- (model.login.error !="" ? "" :
+                        'style="display:none;"') %>>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <strong>
+                            <%- model.login.error %>
+                        </strong>
+                    </div>
+                    <button type="submit" class="btn btn-harps">
+                        <%- lang.button.confirm %>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </main>
+    <form class="modal fade" id="modal-ppinput" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="img-container">
+                        <img id="imagecropper" src="">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </form>

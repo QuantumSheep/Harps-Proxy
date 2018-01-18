@@ -1,1 +1,2 @@
-# harps-proxy
+# harpsproject
+The Harps Project

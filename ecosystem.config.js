@@ -9,7 +9,7 @@ module.exports = {
     {
       name: "core",
       script: "app.js",
-      cwd: "./servers/core",
+      cwd: "./servers/core/dist",
       env: {
         "NODE_ENV": "production",
       }
