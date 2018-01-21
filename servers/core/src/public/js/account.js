@@ -100,7 +100,7 @@ document.forms["modal-ppinput"].addEventListener('submit', (e) => {
 
         // Starting the HTTP request
         let req = new XMLHttpRequest();
-        req.open("POST", `/avatars/update?_csrf=${document.forms["profilpic"]._csrf.value}`, true);
+        req.open("POST", `/upload/avatar?_csrf=${document.forms["profilpic"]._csrf.value}`, true);
 
         req.addEventListener('error', (err) => {}, false);
 

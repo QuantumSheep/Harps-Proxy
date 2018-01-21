@@ -1,10 +1,6 @@
 interface Config {
     servers: {
-        proxy: {
-            host: string,
-            port: number
-        },
-        core: {
+        [key: string]: {
             host: string,
             port: number
         }
@@ -14,7 +10,7 @@ interface Config {
         accepted: string[]
     },
     databases: {
-        main: {
+        [key: string]: {
             host: string,
             port: number,
             user: string,

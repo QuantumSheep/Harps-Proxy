@@ -30,7 +30,7 @@ fs.copy('config.json', 'dist/config.json').catch(err => console.log(`\x1b[31mErr
 function publicTransform(src, dest, options) {
     src = path.resolve(src);
     dest = path.resolve(dest);
-
+    
     function t(file) {
         console.log(file);
         return babelTransform(file, src, dest, {

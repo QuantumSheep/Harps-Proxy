@@ -13,6 +13,22 @@ module.exports = {
       env: {
         "NODE_ENV": "production",
       }
+    },
+    {
+      name: "upload",
+      script: "app.js",
+      cwd: "./servers/upload/dist",
+      env: {
+        "NODE_ENV": "production",
+      }
+    },
+    {
+      name: "files",
+      script: "app.js",
+      cwd: "./servers/files/dist",
+      env: {
+        "NODE_ENV": "production",
+      }
     }
   ]
 }

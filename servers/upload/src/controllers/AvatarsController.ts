@@ -6,17 +6,11 @@ import * as fs from 'fs';
 import * as path from 'path';
 import * as formidable from 'formidable';
 import { FileUploader, MB } from "../services/FileUploader";
-import config from '../config';
+import { config } from '../config';
 
 export class AvatarsController {
-    public static findAvatar(req: Request, res: Response) {
-        glob(path.resolve(`avatars/${req.params.iduser}.*`), (err, matches) => {
-            res.setHeader('Content-Type', 'image/jpeg');
-            res.sendFile(matches.length > 0 ? matches[0] : path.resolve(`avatars/default.jpg`));
-        });
-    }
-
-    public static updateProfilPic(req: Request, res: Response) {
+    public static uploadAvatar(req: Request, res: Response) {
+        console.log(req.cookies);
         let form = new formidable.IncomingForm();
         form.keepExtensions = true;
         form.multiples = true;
@@ -39,7 +33,7 @@ export class AvatarsController {
 
                 fileupload.image(`${res.locals.account.idusers}.${acceptedType[file.type]}`, file)
                     .then(value => {
-                        glob(path.resolve(`avatars/${res.locals.account.idusers}.*`), (err, matches) => {
+                        glob(path.resolve(`../../../files/avatars/${res.locals.account.idusers}.*`), (err, matches) => {
                             matches.forEach((match) => {
                                 if (acceptedType[file.type] && path.resolve(match) != path.resolve(`${config.directories.avatars}${res.locals.account.idusers}.${acceptedType[file.type]}`)) {
                                     fs.unlink(match, err => { });

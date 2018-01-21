@@ -2,11 +2,19 @@ exports.config = {
     servers: {
         proxy: {
             host: "localhost",
-            port: 4000
+            port: 3000
         },
         core: {
             host: "localhost",
             port: 4000
+        },
+        uploads: {
+            host: "localhost",
+            port: 5000
+        },
+        files: {
+            host: "localhost",
+            port: 3200
         }
     },
     lang: {

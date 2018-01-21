@@ -9,22 +9,18 @@ import * as cookieParser from 'cookie-parser';
 import * as bodyParser from 'body-parser';
 import * as csrf from 'csurf';
 
-import config from '../../../config';
+import { config } from './config';
+
+import * as router from './routes/router'
 
 const app = express();
 const server = new http.Server(app);
-
-// Defining EJS as the view engine
-app.set('view engine', 'ejs');
 
 // Autorize proxy connections
 app.set('trust proxy', 1);
 
 // Get some directories to static (like in the root directoy)
 app.use(express.static(`${__dirname}/../${process.env.NODE_ENV !== "production" ? "src/" : "dist/"}public`));
-
-// Defining the views directory
-app.set('views', `${__dirname}/../views`);
 
 // Resolve some HTTP issues
 app.use(helmet());
@@ -42,18 +38,16 @@ app.use(bodyParser.urlencoded({
 app.use(csrf({
     cookie: true
 }));
+
+app.use('/upload', router.upload);
+
 // Route not found
-app.get('*', function (req, res) {
+app.get('*', (req, res) => {
     res.status(404);
-    res.render('errors/404');
+    res.redirect('/');
 });
 
-// Trying to the server, if impossible, log an error message
-try {
-    // Listen to a specific port
-    server.listen(config.server.port, () => {
-        console.log(`Harps Compagny Manager now launched on port ${config.server.port} !`);
-    });
-} catch (e) {
-    console.log(`\x1b[31m/!\\ WARNING /!\\: \x1b[0mError on port : ${e}`);
-}
+// Listen to a specific port
+server.listen(config.servers.uploads.port, () => {
+    console.log(`Uploads service started on port ${config.servers.uploads.port} !`);
+});
