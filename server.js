@@ -24,4 +24,6 @@ const server = http.createServer((req, res) => {
     } else {
         return redirect(req, res, config.servers.core);
     }
-}).listen(config.servers.proxy.port);
+}).listen(config.servers.proxy.port, () => {
+    console.log(`Proxy service started on port ${config.servers.proxy.port} !`);
+});
