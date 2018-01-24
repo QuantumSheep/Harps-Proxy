@@ -10,7 +10,7 @@
   "types": "dist/app",
   "scripts": {
     "start": "node ./",
-    "build": "tsc && node compile.js"
+    "build": "tsc"
   },
   "author": "QuantumSheep",
   "license": "Apache-2.0",

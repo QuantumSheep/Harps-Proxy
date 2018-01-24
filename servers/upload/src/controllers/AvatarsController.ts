@@ -33,7 +33,7 @@ export class AvatarsController {
 
                 fileupload.image(`${res.locals.account.idusers}.${acceptedType[file.type]}`, file)
                     .then(value => {
-                        glob(path.resolve(`../../../files/avatars/${res.locals.account.idusers}.*`), (err, matches) => {
+                        glob(path.resolve(`${config.directories.static}/files/avatars/${res.locals.account.idusers}.*`), (err, matches) => {
                             matches.forEach((match) => {
                                 if (acceptedType[file.type] && path.resolve(match) != path.resolve(`${config.directories.avatars}${res.locals.account.idusers}.${acceptedType[file.type]}`)) {
                                     fs.unlink(match, err => { });

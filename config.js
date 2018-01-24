@@ -34,6 +34,9 @@ exports.config = {
         }
     },
     directories: {
+        root: __dirname,
+        servers: `${__dirname}/servers`,
+        static: `${__dirname}/static`,
         avatars: "avatars/"
     },
     bcrypt: {

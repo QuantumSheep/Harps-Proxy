@@ -19,7 +19,7 @@ interface Config {
         }
     },
     directories: {
-        avatars: string
+        [key: string]: string
     },
     bcrypt: {
         rounds: number

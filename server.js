@@ -14,9 +14,7 @@ function redirect(req, res, target) {
 }
 
 const server = http.createServer((req, res) => {
-    console.log(req.headers);
     const urlPath = path.parse(req.url);
-    console.log(urlPath);
     if (req.method == "POST" && urlPath.dir == "/upload") {
         return redirect(req, res, config.servers.uploads);
     } else if(req.method == "GET" && urlPath.dir == "/avatars") {

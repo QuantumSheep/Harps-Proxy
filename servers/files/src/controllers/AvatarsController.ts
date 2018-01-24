@@ -4,10 +4,11 @@ import { Request, Response } from "express";
 import * as glob from 'glob';
 import * as path from 'path';
 import * as mime from 'mime';
+import { config } from "../../../../config";
 
 export class AvatarsController {
     public static findAvatar(req: Request, res: Response) {
-        glob(path.resolve(`../avatars/${req.params.iduser}.*`), (err, matches) => {
+        glob(path.resolve(`${config.directories.static}/avatars/${req.params.iduser}.*`), (err, matches) => {
             if (matches.length > 0) {
                 let matchMime;
 
@@ -15,7 +16,7 @@ export class AvatarsController {
                 res.sendFile(matches[0]);
             } else {
                 res.setHeader('Content-Type', 'image/jpeg');
-                res.sendFile(path.resolve(`../avatars/default.jpg`));
+                res.sendFile(path.resolve(`${config.directories.static}/avatars/default.jpg`));
             }
         });
     }
