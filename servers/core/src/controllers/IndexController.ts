@@ -4,7 +4,7 @@ import { IndexManager } from '../managers/IndexManager';
 import { IndexModel } from '../models/IndexModel';
 import * as validator from 'validator';
 import { Request, Response } from 'express';
-import { SqlConnection, config } from '../GlobalServices';
+import { SqlConnection, config } from 'harps-services';
 
 export class IndexController {
     // GET function for the index page ('/')

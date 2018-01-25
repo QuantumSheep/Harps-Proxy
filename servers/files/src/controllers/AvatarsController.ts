@@ -4,7 +4,7 @@ import { Request, Response } from "express";
 import * as glob from 'glob';
 import * as path from 'path';
 import * as mime from 'mime';
-import { config } from "../../../../config";
+import { config } from "harps-services";
 
 export class AvatarsController {
     public static findAvatar(req: Request, res: Response) {

@@ -2,7 +2,7 @@
 
 import { Request, Response } from 'express';
 import { Lang } from '../interfaces/LangInterface';
-import { config } from '../GlobalServices';
+import { config } from 'harps-services';
 
 // All accepted languages
 export const accepted = config.lang.accepted;

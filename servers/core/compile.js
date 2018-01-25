@@ -19,7 +19,6 @@ publicTransform('src/public/js', 'dist/public/js', {
 publicUglifyCSS('src/public/css', 'dist/public/css');
 fs.copy('src/public/img', 'dist/public/img').catch(err => console.log(`\x1b[31mError: ${err}`));
 fs.copy('src/public/libs', 'dist/public/libs').catch(err => console.log(`\x1b[31mError: ${err}`));
-fs.copy('config.json', 'dist/config.json').catch(err => console.log(`\x1b[31mError: ${err}`));
 
 /**
  * Transform with babel

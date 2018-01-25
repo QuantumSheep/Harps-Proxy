@@ -18,20 +18,25 @@
     "cookie-parser": "^1.4.3",
     "csurf": "^1.9.0",
     "express": "^4.16.2",
+    "express-mysql-session": "^1.2.3",
     "express-session": "^1.15.6",
     "formidable": "^1.1.1",
     "glob": "^7.1.2",
+    "harps-services": "file:../../services",
     "helmet": "^3.9.0",
-    "jimp": "^0.2.28"
+    "jimp": "^0.2.28",
+    "mysql": "^2.15.0"
   },
   "devDependencies": {
     "@types/cookie-parser": "^1.4.1",
     "@types/csurf": "^1.9.35",
     "@types/express": "^4.11.0",
+    "@types/express-mysql-session": "^1.2.2",
     "@types/express-session": "^1.15.6",
     "@types/formidable": "^1.0.30",
     "@types/glob": "^5.0.34",
     "@types/helmet": "0.0.37",
-    "@types/jimp": "^0.2.28"
+    "@types/jimp": "^0.2.28",
+    "@types/mysql": "^2.15.2"
   }
 }

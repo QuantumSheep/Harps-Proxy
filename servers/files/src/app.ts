@@ -5,7 +5,7 @@ import * as helmet from 'helmet';
 import * as cookieParser from 'cookie-parser';
 import * as bodyParser from 'body-parser';
 import * as csrf from 'csurf';
-import { config } from './config';
+import { config } from 'harps-services';
 
 const app = express();
 const server = new http.Server(app);

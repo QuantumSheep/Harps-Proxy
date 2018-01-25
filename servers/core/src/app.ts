@@ -14,7 +14,7 @@ import * as csrf from 'csurf';
 import * as session from './middlewares/session';
 import * as httpRequest from './middlewares/http-request';
 
-import { config } from './GlobalServices';
+import { config } from 'harps-services';
 
 import router from './routes/router';
 

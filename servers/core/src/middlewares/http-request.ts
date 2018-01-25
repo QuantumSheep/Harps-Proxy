@@ -2,17 +2,18 @@
 
 import { Response, Request, NextFunction } from "express";
 
+import { config, SqlConnection, UserService } from 'harps-services';
+
 import * as localization from '../services/localization';
-import * as user from '../services/user';
+
 import * as moment from 'moment';
 
 import view_config from '../services/view-config';
 
 import { Connection } from "mysql";
-import { RowUser } from "../entities/user.entity";
+import { RowUser } from "../entities/RowUser";
 import { ErrorHandler } from "../services/ErrorHandler";
 import { Locals } from "../interfaces/LocalsInterface";
-import { SqlConnection, config } from "../GlobalServices";
 import { Randomizer } from "../services/Randomizer";
 
 export function load_data(req: Request, res: Response, callback: Function): void {
@@ -41,7 +42,7 @@ export function load_data(req: Request, res: Response, callback: Function): void
     // Checking if a session is open
     if (req.session != null && req.session.secure_key != null) {
         // Getting the user data from his secure key
-        user.get_by_secure(conn, req.session.secure_key).then((data) => {
+        UserService.GetBySecure(conn, req.session.secure_key).then((data) => {
             // Defining account data as the new data
             res.locals.account = data;
 
@@ -55,7 +56,7 @@ export function load_data(req: Request, res: Response, callback: Function): void
             callback();
         }).catch(() => {
             // Removing the wrong secure key from session
-            if(req.session) {
+            if (req.session) {
                 req.session.secure_key = null;
             }
 
@@ -67,7 +68,7 @@ export function load_data(req: Request, res: Response, callback: Function): void
         });
     } else {
         // Removing the wrong secure key from session
-        if(req.session) {
+        if (req.session) {
             req.session.secure_key = null;
         }
 

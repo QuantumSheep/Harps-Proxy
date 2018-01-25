@@ -1,0 +1,15 @@
+{
+  "name": "harps-services",
+  "version": "0.1.0",
+  "description": "Harps Services",
+  "main": "services.js",
+  "scripts": {},
+  "author": "QuantumSheep",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "@types/node": "^9.3.0"
+  },
+  "dependencies": {
+    "bcrypt": "^1.0.3"
+  }
+}

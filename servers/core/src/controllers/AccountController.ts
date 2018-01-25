@@ -4,11 +4,11 @@ import { AccountManager } from '../managers/AccountManager';
 import { IndexModel } from '../models/IndexModel';
 import * as validator from 'validator';
 import { Request, Response } from 'express';
-import * as user from '../services/user';
+import { UserService } from 'harps-services';
 import * as moment from 'moment';
 import * as formidable from 'formidable';
 import { FileUploader, MB } from '../services/FileUploader';
-import { SqlConnection, config } from '../GlobalServices';
+import { SqlConnection, config } from 'harps-services';
 
 export class AccountController {
     // GET function for the index page ('/')
@@ -83,7 +83,7 @@ export class AccountController {
         let conn = SqlConnection(config.databases.main);
 
         if (req.session && req.body.verifPassword != null && req.body.newPassword != null && req.body.password != null && req.body.newPassword.length >= 8 && req.body.verifPassword == req.body.newPassword) {
-            user.check_pass_by_secure(conn, req.session.secure_key, req.body.password).then((response) => {
+            UserService.CheckPasswordBySecure(conn, req.session.secure_key, req.body.password).then((response) => {
                 if (response && req.session) {
                     AccountManager.change_pass(conn, req.session.secure_key, req.body.newPassword).then((response) => {
 

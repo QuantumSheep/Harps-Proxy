@@ -1,3 +1,5 @@
+const path = require('path');
+
 exports.config = {
     servers: {
         proxy: {
@@ -35,8 +37,8 @@ exports.config = {
     },
     directories: {
         root: __dirname,
-        servers: `${__dirname}/servers`,
-        static: `${__dirname}/static`,
+        servers: path.resolve(`${__dirname}/../servers`),
+        static: path.resolve(`${__dirname}/../static`),
         avatars: "avatars/"
     },
     bcrypt: {

@@ -3,8 +3,7 @@
 import * as session from 'express-session';
 import * as expressMySQLSession from 'express-mysql-session';
 import { RequestHandler } from 'express';
-import { config } from '../GlobalServices';
-
+import { config } from 'harps-services';
 
 const MySQLStore = expressMySQLSession(session);
 const sessionStore = new MySQLStore(config.databases.main);

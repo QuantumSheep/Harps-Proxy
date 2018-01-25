@@ -1,7 +1,8 @@
-cd ./servers/core
-cmd.exe /c npm run build
-cd ../files
-cmd.exe /c npm run build
-cd ../upload
-cmd.exe /c npm run build
+@ECHO off
+cmd.exe /c npm update harps-services
+for /d %%i in (.\servers\*) do (
+    cd "%%i"
+    cmd.exe /c npm install && npm run build
+    cd ../..
+)
 pause

@@ -1,11 +1,11 @@
 "use strict";
 
-const { config } = require('./config');
+const dbconnection = require('../services/dbconnection');
 const session = require('express-session');
 const expressMySQLSession = require('express-mysql-session');
 
 const MySQLStore = expressMySQLSession(session);
-const sessionStore = new MySQLStore(config.databases.main);
+const sessionStore = new MySQLStore(dbconnection.options);
 
 exports.Session = session({
     name: 'SSID',

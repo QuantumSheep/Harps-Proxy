@@ -2,7 +2,7 @@
 
 const httpProxy = require('http-proxy');
 const http = require('http');
-const { config } = require('./config');
+const { config } = require('harps-services');
 const path = require('path');
 
 const proxy = httpProxy.createProxyServer({});
@@ -13,7 +13,7 @@ function redirect(req, res, target) {
     });
 }
 
-const server = http.createServer((req, res) => {
+http.createServer((req, res) => {
     const urlPath = path.parse(req.url);
     if (req.method == "POST" && urlPath.dir == "/upload") {
         return redirect(req, res, config.servers.uploads);

@@ -21,6 +21,7 @@
     "express-mysql-session": "^1.2.3",
     "express-session": "^1.15.6",
     "glob": "^7.1.2",
+    "harps-services": "file:../../services",
     "helmet": "^3.9.0",
     "mime": "^2.2.0",
     "mysql": "^2.15.0"

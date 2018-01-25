@@ -1,7 +1,7 @@
 "use strict";
 
 import * as bcrypt from 'bcryptjs';
-import { config } from '../GlobalServices';
+import { config } from 'harps-services';
 
 export function cryptToPromise(tocrypt: string, rounds: number = config.bcrypt.rounds): Promise<string> {
     return new Promise((resolve, reject) => {

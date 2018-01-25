@@ -29,6 +29,7 @@
     "fs-extra": "^5.0.0",
     "glob": "^7.1.2",
     "globby": "^7.1.1",
+    "harps-services": "file:../../services",
     "helmet": "^3.9.0",
     "jimp": "^0.2.28",
     "moment": "^2.20.1",

@@ -8,7 +8,7 @@
   },
   "main": "server.js",
   "scripts": {
-    "start": "node server.js && pm2 start ecosystem.config.js"
+    "start": "pm2 start ecosystem.config.js"
   },
   "author": "QuantumSheep",
   "license": "Apache-2.0",
@@ -16,6 +16,7 @@
     "express": "^4.16.2",
     "express-mysql-session": "^1.2.3",
     "express-session": "^1.15.6",
+    "harps-services": "file:services",
     "http-proxy": "^1.16.2",
     "mysql": "^2.15.0"
   },

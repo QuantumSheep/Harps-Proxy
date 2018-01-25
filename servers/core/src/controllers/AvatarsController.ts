@@ -6,7 +6,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 import * as formidable from 'formidable';
 import { FileUploader, MB } from "../services/FileUploader";
-import { config } from "../GlobalServices";
+import { config } from 'harps-services';
 
 export class AvatarsController {
     public static findAvatar(req: Request, res: Response) {

@@ -9,7 +9,7 @@ import * as cookieParser from 'cookie-parser';
 import * as bodyParser from 'body-parser';
 import * as csrf from 'csurf';
 
-import { config } from './config';
+import { config } from 'harps-services';
 
 import * as router from './routes/router'
 
