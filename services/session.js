@@ -12,5 +12,8 @@ exports.Session = session({
     secret: ' 6*q#c]:bh/*qy#7Rp)ig)T$*L\'{1!^',
     store: sessionStore,
     resave: false,
-    saveUninitialized: true
+    saveUninitialized: true,
+    cookie: {
+        expires: new Date(2147483647000)
+    }
 });
